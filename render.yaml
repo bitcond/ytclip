@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ytclip-backend
+    env: node
+    plan: starter  # or higher if you want faster Whisper processing
+    buildCommand: |
+      apt-get update && \
+      apt-get install -y ffmpeg python3 python3-pip && \
+      pip3 install openai-whisper && \
+      npm install -g yt-dlp && \
+      npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
