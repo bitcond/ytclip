@@ -1,0 +1,25 @@
+# Node dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+
+# Docker build files
+Dockerfile
+.dockerignore
+
+# Git files
+.git
+.gitignore
+
+# Local environment & config
+.env
+.env.local
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+
+# Temporary / generated files
+temp_audio.mp3
+output.txt
+*.log
