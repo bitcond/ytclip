@@ -6,8 +6,11 @@ async function transcribe(audioPath) {
   const outputPath = path.join(__dirname, 'output.txt');
 
   await new Promise((resolve, reject) => {
-    exec(`whisper "${audioPath}" --model small --language en --output_format txt --output_dir "${__dirname}"`, (err) => {
-      if (err) return reject(err);
+    exec(`whisper "${audioPath}" --model small --language en --output_format txt --output_dir "${__dirname}"`, (err, stdout, stderr) => {
+      if (err) {
+        console.error('Whisper error:', stderr);
+        return reject(err);
+      }
       resolve();
     });
   });
@@ -18,3 +21,4 @@ async function transcribe(audioPath) {
 }
 
 module.exports = { transcribe };
+

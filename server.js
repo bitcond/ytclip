@@ -70,3 +70,4 @@ app.get('/api/transcript', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Transcript server listening at http://localhost:${PORT}`);
 });
+
